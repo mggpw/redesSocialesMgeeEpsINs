@@ -7,8 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;0,900;1,700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<!-- Library to export HTML element directly to crisp HD PNG -->
+<!-- Librería para exportación directa a PNG de alta definición -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   
@@ -108,7 +109,7 @@
     padding: 10px 0 40px;
   }
 
-  /* Canvas Raíz con dimensiones exactas */
+  /* Canvas Raíz con bordes en #ab163f y dimensiones exactas */
   .flyer-root {
     background: #ffffff;
     color: #1e293b;
@@ -116,6 +117,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    border: 16px solid #ab163f; /* Bordecito a toda la imagen */
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
     transform-origin: top center;
     transition: width 0.25s ease, height 0.25s ease, transform 0.2s ease;
@@ -123,8 +125,9 @@
     overflow: hidden;
   }
 
+  /* Hero con azul actualizado a #00a7e7 */
   .hero {
-    background: #29649b;
+    background: #00a7e7;
     position: relative;
     overflow: hidden;
     color: #ffffff;
@@ -150,7 +153,7 @@
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
     pointer-events: none;
   }
 
@@ -165,12 +168,13 @@
   }
 
   .hero-eyebrow {
-    color: #f29fc5;
+    color: #ffffff;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     position: relative;
     z-index: 1;
+    opacity: 0.95;
   }
 
   .hero-title {
@@ -184,7 +188,7 @@
   .hero-title span { color: #f29fc5; }
 
   .hero-sub {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.35;
     position: relative;
     z-index: 1;
@@ -213,7 +217,7 @@
     justify-content: space-between;
   }
 
-  .prog-block.left { border-top: 6px solid #29649b; }
+  .prog-block.left { border-top: 6px solid #00a7e7; }
   .prog-block.right { border-top: 6px solid #ab163f; }
 
   .prog-badge {
@@ -226,12 +230,12 @@
     align-self: flex-start;
   }
 
-  .prog-badge.azul { background: #dce9fb; color: #29649b; }
+  .prog-badge.azul { background: #e0f7fe; color: #00a7e7; }
   .prog-badge.rosa { background: #f7dde4; color: #ab163f; }
 
   .prog-title {
     font-weight: 900;
-    color: #29649b;
+    color: #00a7e7;
     line-height: 1.2;
   }
 
@@ -246,7 +250,7 @@
     flex-shrink: 0;
   }
 
-  .prog-dot.azul { background: #29649b; }
+  .prog-dot.azul { background: #00a7e7; }
   .prog-dot.rosa { background: #ab163f; }
   .prog-dot.gris { background: #8e9bb0; }
 
@@ -281,7 +285,7 @@
 
   .arrow-circle {
     border-radius: 50%;
-    background: #29649b;
+    background: #00a7e7;
     color: #ffffff;
     font-weight: 800;
     display: flex;
@@ -456,7 +460,7 @@
 <div class="canvas-viewport" id="viewport">
   <div class="flyer-root format-4-5" id="flyerCard">
 
-    <!-- HERO / ENCABEZADO -->
+    <!-- HERO / ENCABEZADO (#00a7e7) -->
     <div class="hero">
       <div class="hero-bg-circle-1"></div>
       <div class="hero-bg-circle-2"></div>
@@ -475,7 +479,7 @@
         </g>
       </svg>
 
-      <div class="pae-label">Programa de Posgrados en Política y Administración de la Educación</div>
+      <div class="pae-label">Programa de Posgrados en Políticas y Administración de la Educación</div>
       <div class="hero-eyebrow">Trayectoria integrada</div>
       <div class="hero-title">Dos posgrados, <span>un solo camino</span></div>
       <div class="hero-sub">Especialización + Maestría con reconocimiento directo de seminarios cursados.</div>
@@ -497,7 +501,7 @@
             <hr class="divider-dots">
             <div class="prog-item"><div class="prog-dot azul"></div><div class="prog-text">+ 3 Seminarios Específicos</div></div>
             <div class="prog-item"><div class="prog-dot azul"></div><div class="prog-text">+ 3 Seminarios Electivos</div></div>
-           <div class="prog-item"><div class="prog-dot azul"></div><div class="prog-text">+ Pasantía</div></div>
+            <div class="prog-item"><div class="prog-dot azul"></div><div class="prog-text">+ Pasantía</div></div>
           </div>
           <div class="prog-item" style="margin-top:12px;"><div class="prog-dot gris"></div><div class="prog-text prog-meta">15 meses + Trabajo Final</div></div>
         </div>
@@ -611,7 +615,7 @@
     const prevShadow = card.style.boxShadow;
     const dim = formatDimensions[currentFormat];
     
-    // Reset transform y sombra exterior para exportación exacta sin bordes
+    // Reset transform y sombra exterior para exportación exacta con el borde
     card.style.transform = 'none';
     card.style.boxShadow = 'none';
 
